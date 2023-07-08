@@ -40,3 +40,19 @@
 * DDL 파일은 프로젝트 내에 별도의 디렉토리(sql) 등을 생성하여 관리하는 것이 유지 보수 측면에서 좋음
 * 순수 JDBC 강의 부분은 참고 용도(데이터 베이스 연결 기술의 발전 확인)
 * h2 DB는 ```h2.bat``` 을 실행해야 웹에서 실행할 수 있음
+
+
+
+## 스프링 JDBC Template
+
+* 생성자가 하나면 Autowired 생략 가능
+
+* JDBC 사용하려면 build.gradle 파일에 의존성 추가해야 함
+
+  ```
+  dependencies {
+  	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+  	runtimeOnly 'com.h2database:h2'
+  }
+  ```
+
