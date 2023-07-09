@@ -49,10 +49,61 @@
 
 * JDBC 사용하려면 build.gradle 파일에 의존성 추가해야 함
 
-  ```
+  ```java
   dependencies {
   	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
   	runtimeOnly 'com.h2database:h2'
   }
   ```
+
+
+
+## JPA
+
+* ORM(Object Relational Mapping) 기술
+
+* 의존성 추가 필요
+
+* **build.gradle**
+
+  ```java
+  dependencies {
+      implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+  	runtimeOnly 'com.h2database:h2'
+  }
+  ```
+
+* **resources/application.properties**
+
+  ```java
+  spring.datasource.url=jdbc:h2:tcp://localhost/~/test
+  spring.datasource.driver-class-name=org.h2.Driver
+  spring.datasource.username=sa
+  spring.jpa.show-sql=true
+  spring.jpa.hibernate.ddl-auto=none
+  ```
+
+  * hibernate.ddl-auto 설정 create로 하면 테이블 자동으로 생성
+
+* GeneratedValue 가 IDENTIFY면 자동으로 pk 생성
+
+
+
+## 스프링 데이터 JPA
+
+* JPA를 먼저 학습 후에 스프링 데이터 JPA로 진행
+* 인터페이스에서 인터페이스를 상속할 때 implements 가 아닌 extends로 받음
+* 인터페이스는 다중 상속 가능
+
+
+
+## AOP
+
+* 메소드의 호출 시간을 측정할 때 사용
+* 프린트해서 측정하는 것을 비효율적이기 때문에 AOP 사용
+* **@Aspect**를 앞에 적어야 인식 됨
+* **@Component** 스캔이나 Bean에 직접 등록하여 사용
+* **@Around("execution(     )")** 을 통해 사용
+
+
 
